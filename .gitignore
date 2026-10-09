@@ -4,3 +4,13 @@ __pycache__/
 
 # analysis
 analysis/out/*.tmp
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.pdf
+*.synctex.gz
+paper/_localbuild.*
