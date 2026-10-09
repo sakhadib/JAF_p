@@ -182,7 +182,12 @@ rating, treating \emph{culture as a controlled variable}.
 \paragraph{Design.}
 The corpus crosses 12 cultures, 10 story types and 5 models. Cultures are
 Bengali, Chakma, Marma, Santal, Garo (Mandi), Khasi, Manipuri (Meitei), Mro,
-Tripura, Hajong, Rakhine and Oraon (Kurukh). Story types are Origin Story,
+Tripura, Hajong, Rakhine and Oraon (Kurukh). They span four unrelated
+language families, three cultural-geographic zones and five religious
+traditions, and range from 483{,}299 people (Chakma) to 7{,}996 (Hajong) in
+the 2022 census \cite{bbs2022census}. Appendix~\ref{sec:cultures} describes
+each community and documents the sources behind the expected-tradition
+mapping used in \S\ref{sec:register}. Story types are Origin Story,
 Human--Nature Relationship, Moral Transgression and Consequence, Wisdom of an
 Elder, Community Crisis, Rite of Passage, Trickster or Clever Figure, Sacred or
 Forbidden Space, Everyday Life Narrative, and Change and Continuity. Each
@@ -477,11 +482,15 @@ Dirichlet prior). Personal names omitted.}
 \label{sec:register}
 
 We score each story against the tradition that actually predominates in its
-target community, using lexicons of tradition-specific markers.
+target community, using lexicons of tradition-specific markers. The mapping
+from community to expected tradition follows the Banglapedia community entries
+and is tabulated with sources in Appendix~\ref{sec:cultures}
+\cite{banglapedia}.
 
 The most robust result is an \emph{absence}. Across the 100 stories written for
-the two Christian-majority communities, Garo and Khasi, not one contains a
-Christian marker (\bn{গির্জা} \textit{girja} `church', \bn{যীশু}
+the two Christian-majority communities --- Garo, most of whom are Christian,
+and Khasi, over 80\% of whom are \cite{banglapedia-garo,banglapedia-khasia}
+--- not one contains a Christian marker (\bn{গির্জা} \textit{girja} `church', \bn{যীশু}
 \textit{Jishu} `Jesus', \bn{পাদ্রি} \textit{padri} `priest', and related
 terms): 0.0\%. Correct-tradition markers of any kind appear in only 6\% of Garo
 and 6\% of Khasi stories, against 48\% for Marma and 64\% for Manipuri
@@ -722,9 +731,115 @@ not remove the risk.
 used in the analysis code, writing or corpus construction, per ACL policy.}
 
 % Custom bibliography entries only
-\bibliography{references,custom}
+\bibliography{references,cultures}
 
 \appendix
+
+\clearpage
+\section{The Twelve Communities}
+\label{sec:cultures}
+
+This appendix gives the background against which cultural accuracy was judged,
+and documents the expected-tradition assignment used in \S\ref{sec:register}.
+Population figures are from the 2022 Population and Housing Census
+\cite{bbs2022census}, which enumerated 1{,}650{,}159 people in the official
+ethnic-population category, roughly 1\% of the national population; Indigenous
+organisations and researchers dispute the completeness of that count.
+Community descriptions follow the relevant Banglapedia entries
+\cite{banglapedia}, and language classifications follow Glottolog
+\cite{glottolog}. No community is culturally uniform: denomination, village,
+clan, generation, education and migration all produce internal variation, so
+the descriptions below record historically documented patterns rather than
+rules every present-day person follows.
+
+\begin{table*}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{2.0cm}p{3.5cm}p{3.3cm}p{4.4cm}r@{}}
+\toprule
+Community & Principal region & Language (family) & Predominant tradition & 2022 census \\
+\midrule
+Bengali           & Nationwide                      & Bangla (Indo-Aryan)         & Muslim majority, Hindu minority & --- \\
+Chakma            & Rangamati, Khagrachhari         & Chakma (Indo-Aryan)         & Theravada Buddhist              & 483{,}299 \\
+Marma             & Bandarban, Rangamati            & Marma (Sino-Tibetan)        & Theravada Buddhist              & 224{,}261 \\
+Tripura           & Khagrachhari                    & Kokborok (Sino-Tibetan)     & Indigenous and Hindu            & 156{,}578 \\
+Santal            & Rajshahi, Rangpur plains        & Santali (Austroasiatic)     & Indigenous \textit{bonga}; Christian minority & 129{,}049 \\
+Oraon (Kurukh)    & Rajshahi, Rangpur; tea estates  & Kurukh (Dravidian)          & Indigenous \textit{Dharmes}; Christian, some Hindu & 85{,}846 \\
+Garo (Mandi)      & Mymensingh, Sherpur             & Mandi/A'chik (Sino-Tibetan) & \textbf{Christian majority} (Catholic, Baptist) & 76{,}846 \\
+Mro               & Bandarban                       & Mro (Sino-Tibetan)          & Indigenous; some Buddhist       & 52{,}455 \\
+Manipuri (Meitei) & Moulvibazar, Sylhet             & Meitei (Sino-Tibetan)       & Gaudiya Vaishnava Hindu         & 22{,}978 \\
+Khasi             & Sylhet border hills             & Khasi (Austroasiatic)       & \textbf{Christian majority} ($>$80\%, Presbyterian) & 12{,}421 \\
+Rakhine           & Cox's Bazar, Patuakhali         & Rakhine (Sino-Tibetan)      & Theravada Buddhist              & 11{,}195 \\
+Hajong            & Netrokona, Sherpur              & Hajong (Indo-Aryan)         & Hindu (Shakta, Vaishnava)       & 7{,}996 \\
+\bottomrule
+\end{tabular}
+\caption{The twelve communities. Religious tradition determines the
+expected-tradition mapping in \S\ref{sec:register}; the two Christian-majority
+communities are highlighted. Chakma, Marma, Mro and Tripura are Chittagong
+Hill Tracts communities. Census counts from \citet{bbs2022census};
+descriptions from \citet{banglapedia}; families from \citet{glottolog}.}
+\label{tab:cultures}
+\end{table*}
+
+\paragraph{Why the religious mapping matters.} Table~\ref{tab:cultures} is the
+ground truth behind \S\ref{sec:register}. Banglapedia records that over 80\% of
+Bangladeshi Khasi are Christian, mostly Protestant
+\cite{banglapedia-khasia}, and that most Garo are now Christian, divided
+between a Roman Catholic majority and Baptist and other Protestant churches
+\cite{banglapedia-garo}. These are the two communities for which the corpus
+contains no Christian marker at all. For the Theravada Buddhist communities
+(Chakma, Marma, Rakhine) the expected register includes the monastery
+(\bn{কিয়াং} \textit{kyang}) and the monk (\bn{ভান্তে} \textit{bhante}); for
+Santal and Oraon it includes the sacred grove and indigenous deities rather
+than a temple.
+
+\paragraph{Three cultural-geographic zones.} The communities fall into zones
+that explain the confusion structure reported in \S\ref{sec:flattening}. The
+\emph{Chittagong Hill Tracts} hold Chakma, Marma, Mro and most Tripura, who
+share swidden cultivation (\bn{জুম} \textit{jum}), hill-stream ecology and, for
+three of the four, Theravada Buddhism --- which is why the classifier confuses
+them with one another. The \emph{northwestern plains} hold Santal and Oraon,
+whose shared agrarian ritual calendar and sal-forest ecology likewise produce
+mutual confusion. The \emph{northeastern and coastal margins} hold Khasi,
+Manipuri, Garo and Hajong near the Indian border and Rakhine along the
+southern coast.
+
+\paragraph{Language and the Bangla-output design.} Only Chakma, Hajong and
+Bengali are Indo-Aryan. Kurukh is Dravidian --- the only Dravidian language in
+Bangladesh. Santali and Khasi are Austroasiatic, and the remainder are
+Sino-Tibetan \cite{glottolog}. Requiring all output in standard Bangla
+therefore asks the model to render, in a majority Indo-Aryan language, the
+cultural world of communities speaking languages from four unrelated families.
+This isolates cultural from multilingual competence, as intended, but it is
+also the condition under which the glossing behaviour discussed in
+\S\ref{sec:register} arises: a model writing about a Santal \bn{নায়কে}
+\textit{naeke} in Bangla has no religiously neutral Bangla word for the role.
+
+\paragraph{Selected community notes.} \textbf{Chakma} are the largest
+enumerated Indigenous community; their language is Indo-Aryan despite their
+location among Sino-Tibetan-speaking neighbours, and they have their own
+script. \textbf{Garo} and \textbf{Khasi} are both matrilineal: Garo children
+take the mother's surname with the youngest daughter typically inheriting, and
+Khasi descent and property likewise pass through women, with the village
+(\bn{পুঞ্জি} \textit{punji}) and clan as core units; Khasi livelihood is
+strongly associated with betel-leaf cultivation. \textbf{Santal} religious life
+centres on the sacred grove (\bn{জাহের} \textit{jaher}) and \textit{Marang
+Buru}. \textbf{Oraon} inherited religion centres on \textit{Dharmes},
+associated with the sun, with the \textit{Karam} festival and the \textit{pahan}
+priest as salient institutions. \textbf{Manipuri} follow Gaudiya Vaishnavism,
+so temple and \textit{mandap} vocabulary is appropriate for them and not for
+most others --- the one community where Hindu register is expected rather than
+anomalous. \textbf{Rakhine} settled the southern coast from Arakan in the late
+eighteenth century, and maritime life figures centrally in their narrative
+repertoire.
+
+\paragraph{Terminology.} The terminology for these communities is politically
+contested in Bangladesh. The Constitution refers to ``tribes, minor races,
+ethnic sects and communities,'' while many community organisations prefer
+``Indigenous Peoples'' or \textit{Adivasi}, a difference bound up with debates
+over self-identification, customary institutions and land rights. We use each
+community's own name where possible and otherwise ``community,'' without
+implying that every individual adopts the same political terminology.
 
 \section{Reproducibility}
 \label{sec:appendix}

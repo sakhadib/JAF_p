@@ -75,3 +75,10 @@ a penalty.
 - [ ] No acknowledgements in the review version (they break anonymity)
 - [ ] Verify the anonymised repository link is live and contains no author
       identifiers in commit history
+- [ ] Appendix A cites Banglapedia and the 2022 census for every community
+      claim; if you have better scholarly sources for any community, swap them
+      in — `paper/cultures.bib` is kept separate from `references.bib` for
+      exactly this reason
+- [ ] Confirm the expected-tradition mapping in Appendix A Table 8 matches
+      your own understanding of each community. It drives the §5.3 result, so
+      an error there propagates into the headline finding.
