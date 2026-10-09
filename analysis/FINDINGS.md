@@ -124,32 +124,41 @@ Mro↔Tripura (16), Oraon↔Santal (12), Chakma↔Marma (12) are all
 Chittagong-Hill-Tracts or northwestern-plains neighbours. The models are not
 confused arbitrarily; they blur real adjacencies.
 
-## 5. Religious register leaks toward the Bengali majority
+## 5. Expected religious register is missing
 
-Using lexicons split into *strictly* Hindu markers (ব্রাহ্মণ, পুরোহিত, পূজা,
-মন্দির, সিঁদুর, …) versus generic Bangla sacred vocabulary (ঠাকুর, দেবতা) that
-any tradition may use — the generic set would otherwise inflate the estimate.
+The robust result here is an **absence**, not a contamination. Across the 100
+stories for the two Christian-majority communities (Garo, Khasi), **zero**
+contain any Christian marker. Correct-tradition markers of any kind appear in
+only 6% of Garo and 6% of Khasi stories, against 48% for Marma and 64% for
+Manipuri. Presence of a correct-tradition marker is associated with higher
+cultural accuracy (2.578 vs 2.410, Mann-Whitney p = 0.026, d = +0.21).
 
-**20.8% of non-Bengali stories contain strictly Hindu markers.** Worst affected:
-Oraon (46.9%), Santal (40.0%), Marma (36.0%), Rakhine (32.0%), Chakma (30.0%).
+**The Hindu-leakage claim needs tiering, and weakens considerably under it.**
+Taken at face value, 20.8% of non-Bengali stories contain a strictly Hindu
+marker. But Bangla has no religiously neutral everyday vocabulary for several
+ritual concepts: a model writing about a Santal নায়কে *naeke* in Bangla may
+gloss the role as পুরোহিত *purohit* "priest" and the rite as পূজা *puja*
+"worship" without importing Hinduism — and the corpus contains exactly that
+glossing, e.g. নায়কে (পুরোহিত). Deity names cannot be glosses. Over the 399
+stories for communities where Hinduism is not expected:
 
-The Christian-majority communities are the sharpest failure: Garo and Khasi
-stories contain Christian markers in **0.0%** of cases, while carrying Hindu
-markers in 20% and 10%. Correct-tradition markers appear in only 6% of Garo and
-6% of Khasi stories. Theravada Buddhist Marma and Rakhine fare better (48%, 40%
-correct) but still take Hindu leakage at 36% and 32%.
+| tier | % stories | cult. acc. with vs without | p |
+|---|---|---|---|
+| named deities (লক্ষ্মী, দুর্গা) | 4.3% | 2.47 vs 2.44 | 0.86 |
+| institutional (ব্রাহ্মণ, মন্দির, সিঁদুর) | 11.0% | 2.44 vs 2.45 | 0.85 |
+| glossable nouns (পুরোহিত, পূজা) | 18.3% | 2.31 vs 2.48 | 0.09 |
 
-Even the log-odds distinctiveness analysis picks this up: লক্ষ্মী (Lakshmi) ranks
-among the *most distinctively Santal* words in the corpus.
+The headline 20.8% is carried by the weakest tier. Unambiguous leakage — a
+named Hindu deity in a Buddhist, animist or Christian community's story —
+is 4.3%, and none of the three tiers significantly predicts cultural accuracy.
+**Do not claim Hindu leakage drives the low ratings.** What survives is an
+asymmetry of presence: in Garo and Khasi stories the two hard tiers reach 8%
+while Christian markers of any kind are at 0%. Clear cases exist (a qwen3-8b
+Garo story has villagers performing দুর্গার পূজা before a tree, rated 1.81)
+but they are the exception.
 
-Statistically, presence of a **correct**-tradition marker raises cultural
-accuracy (2.578 vs 2.410, Mann–Whitney p = 0.026, d = +0.21). Presence of Hindu
-leakage does not significantly lower it (2.384 vs 2.490, p = 0.22, d = −0.14) —
-getting it right is rewarded more reliably than getting it wrong is punished,
-which may itself say something about how the rubric was applied.
-
-*Caveat for the figure:* Hindu leakage is zero by construction for Bengali,
-Hajong, Manipuri and Tripura, where Hinduism is an expected tradition.
+লক্ষ্মী still ranks among the most distinctively *Santal* words in the corpus,
+which is the pattern showing up in the distinctiveness analysis.
 
 ## 6. The "big bang" hypothesis is false — and the near-miss is more interesting
 
@@ -212,10 +221,12 @@ Three claims the expert ratings alone could not support:
    and a direct response to Pranida et al. (2025), whose finding that LLM
    stories match natives on cultural fidelity does not replicate when the
    culture axis widens from 2 to 12.
-3. **The failure mode is majority-culture default, not rationalism.** 20.8%
-   Hindu leakage into non-Hindu communities, 0% Christian markers for two
-   Christian-majority communities, and a measurable NGO-ethics register — while
-   scientific intrusion is 2.7% and flat across story types.
+3. **The failure mode is omission, not rationalism.** 0% Christian markers
+   across 100 stories for two Christian-majority communities, correct-tradition
+   markers in only 6% of each, and a measurable NGO-ethics register — while
+   scientific intrusion is 2.7% and flat across story types. Hindu leakage is
+   real but weaker than it first appears (4.3% on the hard tier) and does not
+   predict ratings.
 
 Suggested next steps: (a) an ablation giving models a short cultural brief, to
 test whether leakage is a knowledge gap or a retrieval gap — Chowdhury et al.

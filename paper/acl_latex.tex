@@ -1,28 +1,31 @@
+% Compile with XeLaTeX (required for the Bangla examples).
+%   xelatex acl_latex && bibtex acl_latex && xelatex acl_latex && xelatex acl_latex
 \documentclass[11pt]{article}
 
 % Change "review" to "final" to generate the final (sometimes called camera-ready) version.
 % Change to "preprint" to generate a non-anonymous version with page numbers.
 \usepackage[review]{acl}
 
-% Standard package includes
-\usepackage{times}
-\usepackage{latexsym}
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
 \usepackage{microtype}
-\usepackage{inconsolata}
 \usepackage{graphicx}
 \usepackage{booktabs}
-\usepackage{multirow}
 \usepackage{amsmath}
 \usepackage{xcolor}
 
-% Bangla support. The review build falls back to transliteration if the
-% Bangla font is unavailable; see Appendix A.
-\newcommand{\bn}[1]{\textit{#1}}
+% These font commands require XeLaTeX or LuaLaTeX, not pdfLaTeX.
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Termes}          % Times-compatible, per the ACL template
+\newfontfamily\bnfont[Path=./,Script=Bengali,Renderer=HarfBuzz]{kalpurush.ttf}
 
-% Marker for details only the authors can supply before submission.
-\newcommand{\TODO}[1]{\textcolor{red}{[#1]}}
+% Bangla inline span. Script=Bengali enables the GSUB conjunct substitutions,
+% without which ligatures such as ভান্তে and ব্রাহ্মণ render as broken glyph
+% sequences.
+\newcommand{\bn}[1]{{\bnfont #1}}
+% Bangla term followed by transliteration and gloss.
+\newcommand{\bng}[3]{\bn{#1} \textit{#2} `#3'}
+
+% Details that only the authors can supply; see SUBMISSION_CHECKLIST.md.
+\newcommand{\authorfill}[1]{\textcolor{red}{[#1]}}
 
 \title{Model, Not Culture: What Expert Ratings of 599 LLM-Generated Bangla
 Folk Stories Do and Do Not Measure}
@@ -47,11 +50,10 @@ Second, lexical culture-marking dissociates from judged authenticity. A
 classifier recovers the target culture from text at $0.466$ accuracy with
 ethnonyms masked, but the most separable model is rated fourth of five, and the
 weakest model falls \emph{below} the $1/12$ chance baseline. Automatic
-culture-separability would invert the expert ranking. Third, the dominant
-failure is majority-culture default rather than rationalisation:
-20.8\% of non-Bengali stories carry strictly Hindu religious markers, and
-stories for the two Christian-majority communities contain Christian markers
-0\% of the time, while scientific register appears in 2.7\% of stories and is
+culture-separability would invert the expert ranking. Third, the failure is omission rather than
+rationalisation: across the 100 stories for the two Christian-majority
+communities not one contains a Christian marker, while the scientific register
+that folk-tale rationalisation would predict appears in 2.7\% of stories and is
 flat across narrative types. We release the corpus, the annotations, and the
 analysis code.
 \end{abstract}
@@ -105,9 +107,9 @@ of mean-rating variance; culture explains $0.017$ and story type $0.003$
 expert rating dissociate completely across models, so any automatic
 culture-separability metric would rank the models wrongly
 (\S\ref{sec:flattening}). This is the empirical case for expert evaluation.
-\item \textbf{The failure is majority default.} Religious register leaks toward
-Bengali Hinduism; the scientific-intrusion hypothesis is falsified
-(\S\ref{sec:register}).
+\item \textbf{The failure is omission, not rationalisation.} Expected
+religious register is absent --- entirely so for two communities --- while the
+scientific-intrusion hypothesis is falsified (\S\ref{sec:register}).
 \item \textbf{Surface features predict nothing within a model.} Length
 correlates with rating at $\rho = 0.36$ pooled and $\approx 0$ inside every
 model --- a warning for anyone building automatic proxies on corpora like this
@@ -137,7 +139,7 @@ can \emph{sustain} a culturally coherent text.
 human-written tales from 27 cultures, establishing folk narrative as a
 tractable object of computational study but not evaluating generation.
 \citet{tsutsumi-jinnai-2025-large} probe folktale knowledge with YokaiEval, 809
-multiple-choice questions on Japanese \bn{yokai}, and find that
+multiple-choice questions on Japanese \textit{yokai}, and find that
 Japanese-resourced models outperform English-centric ones --- again a knowledge
 format. \citet{razumovskaia-etal-2024-little} study crosslingual story
 planning, \citet{yunusov-etal-2024-mirrorstories} personalised narrative, and
@@ -191,7 +193,7 @@ missing, giving 599 stories rather than 600.
 \paragraph{Prompt.}
 A single Bangla prompt template is used throughout, instantiated with the
 culture name and the story-type scenario. It casts the model as a folk
-storyteller (\bn{lokkatha-kothok}), requires standard Bangla while permitting
+storyteller (\bn{লোককথা-কথক} \textit{lokkatha-kothok}), requires standard Bangla while permitting
 regionally appropriate vocabulary, and imposes three explicit constraints:
 write approximately 500--700 words; do not use modern technology, modern
 statecraft, specific years or contemporary vocabulary; and do not invent
@@ -203,7 +205,7 @@ We evaluate \texttt{openai\_gpt-5.1}, \texttt{openai\_gpt-5-mini},
 \texttt{google\_gemini-3-flash-preview},
 \texttt{mistralai\_mistral-large-2512} and \texttt{qwen\_qwen3-8b}, spanning
 frontier, efficient and small open-weight tiers.
-\TODO{AUTHORS: add decoding parameters (temperature, top-p, max tokens),
+\authorfill{AUTHORS: add decoding parameters (temperature, top-p, max tokens),
 access route and dates, and the exact provider snapshot for each model.}
 
 \paragraph{Annotation.}
@@ -212,7 +214,7 @@ four dimensions: cultural accuracy and authenticity, contextual and temporal
 appropriateness, narrative and symbolic coherence, and linguistic and
 expressive appropriateness. This yields 9{,}584 judgments with no missing
 cells.
-\TODO{AUTHORS: required for the Responsible NLP checklist (D1--D5) --- the full
+\authorfill{AUTHORS: required for the Responsible NLP checklist (D1--D5) --- the full
 rubric with level descriptors, annotator recruitment, cultural and linguistic
 background of each annotator relative to the twelve communities, compensation,
 consent, training/calibration procedure, and IRB status or exemption. We cannot
@@ -337,10 +339,10 @@ more power than twelve cultures $\times$ five models provides.
 
 We now analyse the 599 texts themselves. All measures operate on Bangla-script
 word tokens with a light inflectional suffix matcher, not raw substrings; this
-is not a detail. A naive substring search reports \bn{graha} (``planet'') in
-105 stories, of which essentially all are the unrelated \bn{grahan} (``to
-accept''), and \bn{bas} (``bus'') appears to occur in 503 stories because it is
-a substring of \bn{basbas} (``to dwell''). Substring counting would have
+is not a detail. A naive substring search reports \bn{গ্রহ} \textit{graha} (`planet') in
+105 stories, of which essentially all are the unrelated \bn{গ্রহণ} \textit{grahan}
+(`to accept'), and \bn{বাস} \textit{bas} (`bus') appears to occur in 503 stories because it is
+a substring of \bn{বসবাস} \textit{basbas} (`to dwell'). Substring counting would have
 produced a spurious modernity signal an order of magnitude too large.
 
 \subsection{Models are perfectly separable}
@@ -442,28 +444,28 @@ are overwhelmingly appropriate: the Santal sacred grove and supreme deity, the
 Garo village headman and harvest festival, the Oraon festival, priest and
 drum, the Rakhine monastery. The knowledge exists in aggregate; it is unevenly
 and often incorrectly deployed per story. The Manipuri row shows the leak
-discussed below --- \bn{mandap} and \bn{mandir} sit beside the correct
-\bn{lai}.
+discussed below --- \bn{মণ্ডপ} \textit{mandap} and \bn{মন্দির} \textit{mandir} sit beside the
+correct \bn{লাই} \textit{lai}.
 
 \begin{table}[t]
 \centering\small
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}lp{5.3cm}@{}}
+\begin{tabular}{@{}lp{5.4cm}@{}}
 \toprule
-Culture & Most distinctive terms (transliterated) \\
+Culture & Most distinctive content words \\
 \midrule
-Bengali   & \bn{kukur} dog, \bn{pujo} worship, \bn{shiyal} jackal, \bn{pitha} rice cake \\
-Chakma    & \bn{jhiri} hill stream, \bn{jum} swidden, \bn{karbari} headman, \bn{bhante} monk \\
-Marma     & \bn{Thoai} name, \bn{Sangu} river, \bn{kyang} monastery \\
-Santal    & \bn{jaher} sacred grove, \bn{marang} (Marang Buru), \bn{majhi} headman, \bn{than} shrine \\
-Garo      & \bn{nokma} village chief, \bn{Wangala} harvest festival, \bn{Simsang} river, \bn{dhol} drum \\
-Khasi     & \bn{pan}/\bn{supari} betel, \bn{punji} hamlet, \bn{ghanta} bell \\
-Manipuri  & \bn{lai} deity, \bn{mandap}, \bn{mandir} temple, \bn{tal} rhythm \\
-Mro       & \bn{para} hamlet, \bn{shukor} pig, \bn{jum} swidden \\
-Tripura   & \bn{khokko} ogre, \bn{jum} swidden, \bn{horin} deer \\
-Hajong    & \bn{dhan} paddy, \bn{Someshwari} river, \bn{thakuma} grandmother \\
-Rakhine   & \bn{nouka} boat, \bn{samudra} sea, \bn{kiyang} monastery \\
-Oraon     & \bn{karam} festival, \bn{pahan} priest, \bn{madal} drum, \bn{shal} sal tree \\
+Bengali  & \bng{কুকুর}{kukur}{dog}, \bng{পুজো}{pujo}{worship}, \bng{শিয়াল}{shiyal}{jackal}, \bng{পিঠা}{pitha}{rice cake} \\
+Chakma   & \bng{ঝিরি}{jhiri}{hill stream}, \bng{জুম}{jum}{swidden}, \bng{কারবারি}{karbari}{headman}, \bng{ভান্তে}{bhante}{monk} \\
+Marma    & \bng{সাঙ্গু}{Sangu}{river}, \bng{কিয়াং}{kyang}{monastery}, \bng{পাহাড়}{pahar}{hills} \\
+Santal   & \bng{জাহের}{jaher}{sacred grove}, \bng{মারাং}{marang}{Marang Buru}, \bng{মাঝি}{majhi}{headman}, \bng{থান}{than}{shrine} \\
+Garo     & \bng{নকমা}{nokma}{village chief}, \bng{ওয়ানগালা}{Wangala}{harvest festival}, \bng{সিমসাং}{Simsang}{river} \\
+Khasi    & \bng{পান}{pan}{betel}, \bng{সুপারি}{supari}{areca}, \bng{পুঞ্জি}{punji}{hamlet} \\
+Manipuri & \bng{লাই}{lai}{deity}, \bng{মণ্ডপ}{mandap}{pavilion}, \bng{মন্দির}{mandir}{temple} \\
+Mro      & \bng{পাড়া}{para}{hamlet}, \bng{শূকর}{shukor}{pig}, \bng{জুম}{jum}{swidden} \\
+Tripura  & \bng{খোক্কো}{khokko}{ogre}, \bng{জুম}{jum}{swidden}, \bng{হরিণ}{horin}{deer} \\
+Hajong   & \bng{ধান}{dhan}{paddy}, \bng{সোমেশ্বরী}{Someshwari}{river}, \bng{ঠাকুমা}{thakuma}{grandmother} \\
+Rakhine  & \bng{নৌকা}{nouka}{boat}, \bng{সমুদ্র}{samudra}{sea}, \bng{কিয়াং}{kiyang}{monastery} \\
+Oraon    & \bng{করম}{karam}{festival}, \bng{পাহান}{pahan}{priest}, \bng{মাদল}{madal}{drum}, \bng{শাল}{shal}{sal tree} \\
 \bottomrule
 \end{tabular}
 \caption{Top distinctive content words per culture (log-odds with informative
@@ -471,27 +473,67 @@ Dirichlet prior). Personal names omitted.}
 \label{tab:distinctive}
 \end{table}
 
-\subsection{Religious register leaks to the majority}
+\subsection{Expected religious register is missing}
 \label{sec:register}
 
 We score each story against the tradition that actually predominates in its
-target community, using lexicons split into \emph{strictly} tradition-specific
-markers and generic Bangla sacred vocabulary (\bn{thakur}, \bn{debota}) that
-any tradition may use; the generic set would otherwise inflate the estimate.
+target community, using lexicons of tradition-specific markers.
 
-\textbf{20.8\% of non-Bengali stories contain strictly Hindu markers}, led by
-Oraon (46.9\%), Santal (40.0\%), Marma (36.0\%), Rakhine (32.0\%) and Chakma
-(30.0\%). The sharpest failure is for the Christian-majority communities:
-Garo and Khasi stories contain Christian markers in \textbf{0.0\%} of cases
-while carrying Hindu markers in 20\% and 10\%, and correct-tradition markers
-appear in only 6\% of each (Figure~\ref{fig:religion}). Even the
-distinctiveness analysis registers the leak: \bn{Lakshmi} ranks among the most
-distinctively \emph{Santal} words in the corpus.
+The most robust result is an \emph{absence}. Across the 100 stories written for
+the two Christian-majority communities, Garo and Khasi, not one contains a
+Christian marker (\bn{গির্জা} \textit{girja} `church', \bn{যীশু}
+\textit{Jishu} `Jesus', \bn{পাদ্রি} \textit{padri} `priest', and related
+terms): 0.0\%. Correct-tradition markers of any kind appear in only 6\% of Garo
+and 6\% of Khasi stories, against 48\% for Marma and 64\% for Manipuri
+(Figure~\ref{fig:religion}). The models do not merely under-represent these
+communities' religious life; for two of them they omit it entirely. Presence of
+a correct-tradition marker is associated with higher cultural accuracy across
+the corpus (2.578 vs.\ 2.410, Mann--Whitney $p = 0.026$, $d = +0.21$).
 
-Presence of a correct-tradition marker raises cultural accuracy (2.578 vs.\
-2.410, Mann--Whitney $p = 0.026$, $d = +0.21$). Presence of Hindu leakage does
-not significantly lower it (2.384 vs.\ 2.490, $p = 0.22$): getting the
-tradition right is rewarded more reliably than getting it wrong is punished.
+\paragraph{Leakage, tiered.} A natural companion claim is that Hindu register
+leaks into non-Hindu communities. Taken at face value, 20.8\% of non-Bengali
+stories contain a strictly Hindu marker. That figure needs qualifying, and we
+report the qualification because it materially weakens the claim. Bangla has no
+religiously neutral everyday vocabulary for several ritual concepts, so a model
+writing about a Santal \bn{নায়কে} \textit{naeke} in Bangla may gloss the role
+as \bn{পুরোহিত} \textit{purohit} `priest' and the rite as \bn{পূজা}
+\textit{puja} `worship' without importing Hinduism --- and indeed the corpus
+contains exactly such glossing, as in \bn{নায়কে (পুরোহিত)}. Deity names cannot
+be glosses. Tiering the lexicon accordingly, over the 399 stories for
+communities where Hinduism is not an expected tradition:
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{lccc}
+\toprule
+Tier & \% stories & cult.\ acc. & $p$ \\
+\midrule
+Named deities        & 4.3\%  & 2.47 vs 2.44 & 0.86 \\
+Institutional        & 11.0\% & 2.44 vs 2.45 & 0.85 \\
+Glossable nouns      & 18.3\% & 2.31 vs 2.48 & 0.09 \\
+\bottomrule
+\end{tabular}
+\caption{Hindu-marker leakage by diagnostic strength, for communities where
+Hinduism is not an expected tradition ($n = 399$). Named deities
+(\bn{লক্ষ্মী}, \bn{দুর্গা}) cannot be glosses; glossable nouns
+(\bn{পুরোহিত}, \bn{পূজা}) plausibly can.}
+\label{tab:tiers}
+\end{table}
+
+The headline 20.8\% is carried by the weakest tier. Unambiguous leakage ---
+a named Hindu deity in a Buddhist, animist or Christian community's story ---
+occurs in 4.3\% of cases, and in the Garo and Khasi stories the two hard tiers
+combined reach 8\%. None of the three tiers significantly predicts cultural
+accuracy. We therefore do not claim that Hindu leakage drives the low ratings.
+What the tiering does show is a asymmetry of presence: for Garo and Khasi,
+Hindu markers of the hard tiers (8\%) outnumber Christian markers of any kind
+(0\%), in communities that are predominantly Christian. Clear cases exist --- a
+qwen3-8b Garo story has villagers performing \bn{দুর্গার পূজা} `worship of
+Durga' before a tree (rated 1.81) --- but they are the exception, not the rule.
+
+Even the distinctiveness analysis registers the pattern: \bn{লক্ষ্মী}
+\textit{Lakshmi} ranks among the most distinctively \emph{Santal} words in the
+corpus.
 
 \begin{figure}[t]
 \centering
@@ -561,8 +603,9 @@ against training automatic proxies on corpora of this shape.
 
 The three results compose into one picture. Models possess real but shallow
 cultural knowledge: correct community-specific terms exist in the corpus
-(\S\ref{sec:flattening}) yet are deployed inconsistently and are routinely
-overridden by a Bengali-majority default (\S\ref{sec:register}). What separates
+(\S\ref{sec:flattening}) yet are deployed inconsistently, and the
+religious life of some communities is omitted altogether
+(\S\ref{sec:register}). What separates
 good from bad output is not cultural difficulty but general capability
 (\S\ref{sec:variance}). And the surface correlates of quality that a
 cheap automatic metric would latch onto --- length, lexical diversity, cultural
@@ -589,8 +632,8 @@ ratings show uniform failure with a ceiling of 2.79 of 5 and linguistic
 register as the consistent floor. Pairing ratings with corpus analysis shows
 that model identity dominates culture by a factor of 24 in explained variance,
 that automatic culture-separability would invert the expert ranking, and that
-the dominant failure mode is majority-culture religious default rather than
-scientific rationalisation. For eleven of the twelve communities studied, this
+the dominant failure mode is omission of expected cultural register rather
+than scientific rationalisation. For eleven of the twelve communities studied, this
 is to our knowledge the first evaluation of generative cultural competence of
 any kind.
 
@@ -623,7 +666,7 @@ elsewhere.
 high ($\alpha \ge 0.81$), but four raters cannot represent twelve distinct
 communities, and we cannot establish from the released artifact whether any
 annotator is a community insider for a given culture.
-\TODO{AUTHORS: this paragraph must be completed with the annotators' actual
+\authorfill{AUTHORS: this paragraph must be completed with the annotators' actual
 relationship to the twelve communities. If no annotator is an insider for some
 community, say so explicitly --- it is a material limitation for a cultural
 authenticity judgment, and reviewers will ask.}
@@ -652,20 +695,19 @@ machine-generated depictions of eleven minority communities in Bangladesh,
 several of which have experienced documented marginalisation. The generated
 stories are research artifacts and evaluation targets, not cultural
 documentation, and must not be redistributed or presented as authentic
-folklore of these communities. We frame our central finding --- systematic
-leakage of majority-religion register into minority narratives --- precisely
-because unexamined deployment of such systems risks amplifying that erasure at
-scale.
+folklore of these communities. We report the omission of these communities' own religious register ---
+complete, in the Garo and Khasi cases --- precisely because unexamined
+deployment of such systems risks amplifying that erasure at scale.
 
 \paragraph{Community consultation.}
-\TODO{AUTHORS: state whether any of the twelve communities were consulted in
+\authorfill{AUTHORS: state whether any of the twelve communities were consulted in
 designing the rubric or reviewing outputs, and if not, say so plainly. Also
 state the IRB/ethics-board status of the annotation study (checklist D4) and
 annotator compensation (D2).}
 
 \paragraph{Release and licensing.} We release the corpus, annotations and
 analysis code.
-\TODO{AUTHORS: specify the licence for the corpus and code, the terms under
+\authorfill{AUTHORS: specify the licence for the corpus and code, the terms under
 which each model's outputs may be redistributed (provider terms differ), and
 confirm that no personally identifying information appears in the generated
 text (checklist B2--B4).}
@@ -676,7 +718,7 @@ results indicate current models are poor at this task, which limits but does
 not remove the risk.
 
 \paragraph{Use of AI assistants.}
-\TODO{AUTHORS: checklist E1 requires a statement. Disclose any AI assistance
+\authorfill{AUTHORS: checklist E1 requires a statement. Disclose any AI assistance
 used in the analysis code, writing or corpus construction, per ACL policy.}
 
 % Custom bibliography entries only
@@ -707,8 +749,11 @@ Distinctive vocabulary uses the log-odds ratio with an informative Dirichlet
 prior, with the corpus itself as prior. Within-model analyses use group-mean
 centring on both the feature and the rating.
 
-\paragraph{Figures.} Bangla word clouds require a font with complex-script
-shaping; without it, conjunct characters render incorrectly. Chart labels are
-in English because the plotting library does not perform Bangla shaping.
+\paragraph{Typesetting.} Bangla examples are set in Kalpurush via
+\texttt{fontspec} with \texttt{Script=Bengali}; the paper must be compiled with
+XeLaTeX, since pdf\LaTeX{} cannot perform the conjunct substitutions and
+renders ligatures such as \bn{ব্রাহ্মণ} as broken glyph sequences. Word clouds
+in the released analysis have the same requirement. Chart labels are in English
+because the plotting library does not shape Bangla.
 
 \end{document}

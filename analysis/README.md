@@ -12,6 +12,8 @@ Quantitative analysis of `res.json` beyond the expert ratings. Findings are in
 | `03_distinctive.py` | log-odds distinctive vocabulary, opening-formula diversity |
 | `04_stats.py` | agreement, religious leakage, OLS, variance decomposition |
 | `05_figures.py` | all figures and Bangla word clouds |
+| `06_compliance.py` | adherence to the prompt's own length and content constraints |
+| `07_leakage_tiers.py` | robustness check tiering religious markers by diagnostic strength |
 | `tests/` | pins the agreement estimators and the tokeniser |
 
 ```bash
