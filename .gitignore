@@ -1,3 +1,6 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# analysis
+analysis/out/*.tmp

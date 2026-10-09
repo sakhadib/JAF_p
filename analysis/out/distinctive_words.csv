@@ -1,0 +1,426 @@
+axis,group,rank,word,z,count_in_group
+model,google_gemini-3-flash-preview,1,বা,22.22,331
+model,google_gemini-3-flash-preview,2,কেবল,14.37,252
+model,google_gemini-3-flash-preview,3,আজও,14.05,168
+model,google_gemini-3-flash-preview,4,বিশাল,12.97,124
+model,google_gemini-3-flash-preview,5,তৈরি,12.01,127
+model,google_gemini-3-flash-preview,6,আজ,11.54,221
+model,google_gemini-3-flash-preview,7,প্রকৃতির,11.53,167
+model,google_gemini-3-flash-preview,8,পাহাড়ের,11.51,528
+model,google_gemini-3-flash-preview,9,মং,10.94,126
+model,google_gemini-3-flash-preview,10,সমাজে,10.04,67
+model,google_gemini-3-flash-preview,11,পাড়ার,9.78,112
+model,google_gemini-3-flash-preview,12,গভীরে,9.67,67
+model,google_gemini-3-flash-preview,13,জুম,9.52,111
+model,google_gemini-3-flash-preview,14,বনের,9.5,300
+model,google_gemini-3-flash-preview,15,পূর্বপুরুষদের,9.37,68
+model,google_gemini-3-flash-preview,16,কাল,9.32,64
+model,google_gemini-3-flash-preview,17,কার্বারি,8.37,51
+model,google_gemini-3-flash-preview,18,চাষের,8.07,42
+model,google_gemini-3-flash-preview,19,আদি,8.05,43
+model,google_gemini-3-flash-preview,20,সমাজ,7.78,52
+model,google_gemini-3-flash-preview,21,কোনোদিন,7.66,38
+model,google_gemini-3-flash-preview,22,মানুষের,7.65,201
+model,google_gemini-3-flash-preview,23,বুনো,7.65,57
+model,google_gemini-3-flash-preview,24,চিরে,7.6,38
+model,google_gemini-3-flash-preview,25,ঐতিহ্যবাহী,7.57,41
+model,mistralai_mistral-large-2512,1,গ্রামের,15.76,693
+model,mistralai_mistral-large-2512,2,রাজা,13.39,98
+model,mistralai_mistral-large-2512,3,বাঁশি,13.21,101
+model,mistralai_mistral-large-2512,4,তারপর,12.54,199
+model,mistralai_mistral-large-2512,5,নদীর,11.65,304
+model,mistralai_mistral-large-2512,6,থোয়াই,10.91,61
+model,mistralai_mistral-large-2512,7,মং,10.78,106
+model,mistralai_mistral-large-2512,8,মন,10.66,111
+model,mistralai_mistral-large-2512,9,অবাক,10.43,66
+model,mistralai_mistral-large-2512,10,অভিশাপ,10.29,54
+model,mistralai_mistral-large-2512,11,লাগল,10.08,217
+model,mistralai_mistral-large-2512,12,সোনার,9.79,49
+model,mistralai_mistral-large-2512,13,মানুষেরা,9.6,52
+model,mistralai_mistral-large-2512,14,নদী,9.45,208
+model,mistralai_mistral-large-2512,15,তোমাকে,9.43,77
+model,mistralai_mistral-large-2512,16,একদিন,9.29,155
+model,mistralai_mistral-large-2512,17,ক্ষমা,9.17,76
+model,mistralai_mistral-large-2512,18,রামু,9.17,43
+model,mistralai_mistral-large-2512,19,বৃদ্ধা,9.09,72
+model,mistralai_mistral-large-2512,20,ম্রো,9.07,54
+model,mistralai_mistral-large-2512,21,রাজার,8.97,44
+model,mistralai_mistral-large-2512,22,শাস্তি,8.88,55
+model,mistralai_mistral-large-2512,23,কোলে,8.77,57
+model,mistralai_mistral-large-2512,24,লোকেরা,8.76,122
+model,mistralai_mistral-large-2512,25,মাথা,8.63,120
+model,openai_gpt-5-mini,1,কণ্ঠে,12.42,103
+model,openai_gpt-5-mini,2,গান,11.53,258
+model,openai_gpt-5-mini,3,কাজ,11.23,230
+model,openai_gpt-5-mini,4,পুরনো,11.09,191
+model,openai_gpt-5-mini,5,বদলে,9.9,122
+model,openai_gpt-5-mini,6,বড়,9.74,344
+model,openai_gpt-5-mini,7,সম্মান,9.21,117
+model,openai_gpt-5-mini,8,রেখে,8.98,139
+model,openai_gpt-5-mini,9,ছোট,8.85,313
+model,openai_gpt-5-mini,10,বাড়ির,8.7,82
+model,openai_gpt-5-mini,11,নতুন,8.57,278
+model,openai_gpt-5-mini,12,বুড়ো,8.05,115
+model,openai_gpt-5-mini,13,বনকে,8.01,53
+model,openai_gpt-5-mini,14,কাজের,7.97,58
+model,openai_gpt-5-mini,15,স্মৃতি,7.91,49
+model,openai_gpt-5-mini,16,সিদ্ধান্ত,7.84,61
+model,openai_gpt-5-mini,17,হাসি,7.74,75
+model,openai_gpt-5-mini,18,ভাগ,7.7,101
+model,openai_gpt-5-mini,19,একে,7.59,99
+model,openai_gpt-5-mini,20,কণ্ঠ,7.48,45
+model,openai_gpt-5-mini,21,লোকেরা,7.4,138
+model,openai_gpt-5-mini,22,বটগাছের,7.23,60
+model,openai_gpt-5-mini,23,কাহিনি,7.17,60
+model,openai_gpt-5-mini,24,স্মরণ,7.12,38
+model,openai_gpt-5-mini,25,দায়িত্ব,7.12,49
+model,openai_gpt-5.1,1,একটু,16.45,368
+model,openai_gpt-5.1,2,গলায়,11.88,182
+model,openai_gpt-5.1,3,ধীরে,11.83,400
+model,openai_gpt-5.1,4,গায়ে,11.47,262
+model,openai_gpt-5.1,5,কারও,11.0,184
+model,openai_gpt-5.1,6,তো,10.73,363
+model,openai_gpt-5.1,7,গা,10.32,126
+model,openai_gpt-5.1,8,শুকনো,9.91,165
+model,openai_gpt-5.1,9,দূরে,9.91,146
+model,openai_gpt-5.1,10,ভেতরে,9.72,140
+model,openai_gpt-5.1,11,বেশি,9.66,193
+model,openai_gpt-5.1,12,পুরোনো,9.62,158
+model,openai_gpt-5.1,13,বুড়ি,9.49,119
+model,openai_gpt-5.1,14,ফিসফিস,9.49,107
+model,openai_gpt-5.1,15,বুকের,9.42,112
+model,openai_gpt-5.1,16,চারদিকে,9.3,106
+model,openai_gpt-5.1,17,দাঁড়িয়ে,9.08,214
+model,openai_gpt-5.1,18,শব্দ,9.03,200
+model,openai_gpt-5.1,19,তাকিয়ে,9.0,151
+model,openai_gpt-5.1,20,ঠিক,8.98,241
+model,openai_gpt-5.1,21,টিলার,8.89,95
+model,openai_gpt-5.1,22,দু,8.86,96
+model,openai_gpt-5.1,23,জমি,8.19,178
+model,openai_gpt-5.1,24,গাছ,8.13,372
+model,openai_gpt-5.1,25,কেটে,7.96,227
+model,qwen_qwen3-8b,1,পানি,28.41,294
+model,qwen_qwen3-8b,2,মানুষ,20.02,303
+model,qwen_qwen3-8b,3,প্রাণ,19.55,135
+model,qwen_qwen3-8b,4,আসে,18.21,190
+model,qwen_qwen3-8b,5,বাবা,18.06,142
+model,qwen_qwen3-8b,6,এটি,17.89,123
+model,qwen_qwen3-8b,7,বাবু,16.87,163
+model,qwen_qwen3-8b,8,গাছটি,14.66,77
+model,qwen_qwen3-8b,9,বৃক্ষ,14.27,100
+model,qwen_qwen3-8b,10,বৃদ্ধ,14.21,111
+model,qwen_qwen3-8b,11,ছেলে,14.07,104
+model,qwen_qwen3-8b,12,সামাজিক,13.8,68
+model,qwen_qwen3-8b,13,গ্রামের,13.5,457
+model,qwen_qwen3-8b,14,জন্ম,13.23,75
+model,qwen_qwen3-8b,15,গ্রামে,13.0,174
+model,qwen_qwen3-8b,16,পূজা,12.95,76
+model,qwen_qwen3-8b,17,সবাই,12.53,289
+model,qwen_qwen3-8b,18,সবসময়,12.15,58
+model,qwen_qwen3-8b,19,মাছ,11.74,124
+model,qwen_qwen3-8b,20,সম্পর্ক,11.39,52
+model,qwen_qwen3-8b,21,বৃক্ষের,11.34,96
+model,qwen_qwen3-8b,22,কোনও,11.33,46
+model,qwen_qwen3-8b,23,করব,11.08,78
+model,qwen_qwen3-8b,24,হাসতে,11.02,45
+model,qwen_qwen3-8b,25,পিতা,10.85,79
+culture,Bengali,1,কুকুর,10.83,40
+culture,Bengali,2,পুজো,9.61,30
+culture,Bengali,3,বউ,9.25,28
+culture,Bengali,4,শিয়াল,9.04,30
+culture,Bengali,5,কালু,8.87,28
+culture,Bengali,6,পানি,8.61,101
+culture,Bengali,7,রাতন,8.6,24
+culture,Bengali,8,পিঠা,7.95,37
+culture,Bengali,9,কানাই,7.58,21
+culture,Bengali,10,দিঘির,7.22,17
+culture,Bengali,11,বাঘ,7.12,56
+culture,Bengali,12,খাল,7.08,17
+culture,Bengali,13,রে,6.8,29
+culture,Bengali,14,শীতের,6.59,17
+culture,Bengali,15,ঘাটে,6.54,15
+culture,Bengali,16,বটের,6.35,13
+culture,Bengali,17,শাপলা,6.35,13
+culture,Bengali,18,তোর,6.16,53
+culture,Bengali,19,বিলের,6.12,18
+culture,Bengali,20,মুকুট,6.02,13
+culture,Bengali,21,রতন,5.92,16
+culture,Bengali,22,নদীকে,5.92,26
+culture,Bengali,23,ময়না,5.9,15
+culture,Bengali,24,খালাস,5.86,35
+culture,Bengali,25,পুকুর,5.56,24
+culture,Chakma,1,রুমা,10.09,32
+culture,Chakma,2,ঝিরির,8.74,28
+culture,Chakma,3,জুমের,8.1,58
+culture,Chakma,4,বাঁশ,8.08,55
+culture,Chakma,5,কারবারি,7.97,20
+culture,Chakma,6,ভান্তে,7.75,23
+culture,Chakma,7,সা,7.54,18
+culture,Chakma,8,রূপাই,7.35,17
+culture,Chakma,9,জুম,7.27,53
+culture,Chakma,10,বানর,6.91,17
+culture,Chakma,11,ময়না,6.77,17
+culture,Chakma,12,কার্বারি,6.69,21
+culture,Chakma,13,চাকমা,6.63,68
+culture,Chakma,14,রত্ন,6.6,14
+culture,Chakma,15,অমর,6.25,13
+culture,Chakma,16,শিমুল,5.9,11
+culture,Chakma,17,ভান্তের,5.63,10
+culture,Chakma,18,উপরের,5.61,12
+culture,Chakma,19,ঝুমের,5.6,13
+culture,Chakma,20,পাহাড়ের,5.56,204
+culture,Chakma,21,বিজু,5.52,25
+culture,Chakma,22,পার্বত্য,5.52,10
+culture,Chakma,23,দাদি,5.45,17
+culture,Chakma,24,রাজা,5.44,33
+culture,Chakma,25,বাঁশের,5.38,73
+culture,Marma,1,মারমা,11.45,63
+culture,Marma,2,থোয়াই,10.82,41
+culture,Marma,3,সমুদ্রে,9.9,32
+culture,Marma,4,সাঙ্গু,9.73,31
+culture,Marma,5,মাছ,9.09,97
+culture,Marma,6,চাইছে,8.7,25
+culture,Marma,7,পাহাড়ের,8.66,246
+culture,Marma,8,প্রু,8.52,45
+culture,Marma,9,বিনা,8.5,25
+culture,Marma,10,মংহ্লা,8.47,24
+culture,Marma,11,ধরতে,8.31,35
+culture,Marma,12,চিং,8.22,30
+culture,Marma,13,পাহাড়,7.36,103
+culture,Marma,14,মং,7.26,56
+culture,Marma,15,রোয়াজা,7.17,23
+culture,Marma,16,সমুদ্র,7.17,31
+culture,Marma,17,কিয়াংয়ের,7.04,17
+culture,Marma,18,জাদু,7.04,16
+culture,Marma,19,ভিক্ষু,7.01,18
+culture,Marma,20,বৌদ্ধ,6.51,14
+culture,Marma,21,হ্লা,6.51,17
+culture,Marma,22,কিয়াং,6.35,19
+culture,Marma,23,নদীর,6.31,150
+culture,Marma,24,বিপিন,5.98,15
+culture,Marma,25,নদী,5.9,109
+culture,Santal,1,জাহের,16.11,95
+culture,Santal,2,মাঝি,11.45,43
+culture,Santal,3,বীরু,9.92,31
+culture,Santal,4,মারাং,9.44,70
+culture,Santal,5,থানের,8.56,23
+culture,Santal,6,কানহু,8.53,33
+culture,Santal,7,লালু,8.23,22
+culture,Santal,8,সাঁওতাল,7.85,51
+culture,Santal,9,থানে,7.25,17
+culture,Santal,10,লক্ষ্মী,6.92,15
+culture,Santal,11,সমাধি,6.9,28
+culture,Santal,12,ফুল,6.79,58
+culture,Santal,13,মাদলের,6.63,18
+culture,Santal,14,শালবনের,6.56,14
+culture,Santal,15,মাদল,6.48,18
+culture,Santal,16,বিল,6.42,14
+culture,Santal,17,বুরু,6.36,53
+culture,Santal,18,শাল,6.27,23
+culture,Santal,19,স্থানের,6.19,13
+culture,Santal,20,কানাই,5.95,16
+culture,Santal,21,কালী,5.91,11
+culture,Santal,22,শালগাছের,5.87,13
+culture,Santal,23,পরগনার,5.87,15
+culture,Santal,24,শালের,5.64,10
+culture,Santal,25,বিনদি,5.61,10
+culture,Garo (Mandi),1,গারো,12.85,70
+culture,Garo (Mandi),2,নকমা,12.8,83
+culture,Garo (Mandi),3,নোকমা,7.0,30
+culture,Garo (Mandi),4,ঢোলের,6.68,18
+culture,Garo (Mandi),5,নকমার,6.46,16
+culture,Garo (Mandi),6,চু,6.33,15
+culture,Garo (Mandi),7,জলার,5.9,11
+culture,Garo (Mandi),8,কর্মে,5.88,11
+culture,Garo (Mandi),9,কর্ম,5.43,14
+culture,Garo (Mandi),10,ঢোল,5.35,19
+culture,Garo (Mandi),11,ওয়ানগালা,5.32,21
+culture,Garo (Mandi),12,আবা,5.17,10
+culture,Garo (Mandi),13,বীরবাবু,5.04,8
+culture,Garo (Mandi),14,সিমসাং,5.04,8
+culture,Garo (Mandi),15,পাহাড়ের,5.0,198
+culture,Garo (Mandi),16,শিকার,4.88,21
+culture,Garo (Mandi),17,রক্ত,4.74,17
+culture,Garo (Mandi),18,গোপন,4.74,17
+culture,Garo (Mandi),19,জেনু,4.59,11
+culture,Garo (Mandi),20,শীষ,4.57,10
+culture,Garo (Mandi),21,বোন,4.39,13
+culture,Garo (Mandi),22,জিরো,4.36,9
+culture,Garo (Mandi),23,শিকারি,4.34,11
+culture,Garo (Mandi),24,পারসুদ্দীন,4.33,6
+culture,Garo (Mandi),25,নোকমার,4.27,6
+culture,Khasi,1,পাহাড়ের,10.27,255
+culture,Khasi,2,পান,9.36,36
+culture,Khasi,3,মায়ের,9.12,54
+culture,Khasi,4,ঘণ্টা,8.94,28
+culture,Khasi,5,পানের,8.78,24
+culture,Khasi,6,সুপারি,7.9,20
+culture,Khasi,7,বংশের,7.64,23
+culture,Khasi,8,খাসি,7.06,97
+culture,Khasi,9,লাউ,6.87,15
+culture,Khasi,10,কা,6.85,81
+culture,Khasi,11,পাথর,6.83,55
+culture,Khasi,12,বাহ,6.53,22
+culture,Khasi,13,শহরে,6.22,12
+culture,Khasi,14,মাছি,6.21,19
+culture,Khasi,15,ঝরনার,6.02,59
+culture,Khasi,16,কাঁসার,5.82,11
+culture,Khasi,17,কন্যা,5.76,15
+culture,Khasi,18,বাগানে,5.75,11
+culture,Khasi,19,মূল,5.74,23
+culture,Khasi,20,নানির,5.63,10
+culture,Khasi,21,ঝরনা,5.63,33
+culture,Khasi,22,নানি,5.58,13
+culture,Khasi,23,বাণী,5.49,10
+culture,Khasi,24,পূর্বপুরুষদের,5.42,26
+culture,Khasi,25,পানপাতা,5.36,11
+culture,Manipuri (Meitei),1,লাই,9.87,46
+culture,Manipuri (Meitei),2,তালে,7.12,27
+culture,Manipuri (Meitei),3,তাল,6.66,21
+culture,Manipuri (Meitei),4,মণ্ডপে,6.11,17
+culture,Manipuri (Meitei),5,মন্দিরে,5.94,11
+culture,Manipuri (Meitei),6,বীরেন,5.68,11
+culture,Manipuri (Meitei),7,নাচের,5.66,18
+culture,Manipuri (Meitei),8,মণি,5.5,11
+culture,Manipuri (Meitei),9,সম্প্রদায়ের,5.44,14
+culture,Manipuri (Meitei),10,নামক,5.36,9
+culture,Manipuri (Meitei),11,হাঁস,5.32,11
+culture,Manipuri (Meitei),12,সামাজিক,5.18,22
+culture,Manipuri (Meitei),13,ধনী,5.17,13
+culture,Manipuri (Meitei),14,নমস্কার,5.04,11
+culture,Manipuri (Meitei),15,পুকুরের,4.98,22
+culture,Manipuri (Meitei),16,অবিশ্বাস,4.94,8
+culture,Manipuri (Meitei),17,মাতাল,4.81,13
+culture,Manipuri (Meitei),18,প্রবেশ,4.77,11
+culture,Manipuri (Meitei),19,মানুষেরা,4.76,20
+culture,Manipuri (Meitei),20,নৃত্য,4.74,8
+culture,Manipuri (Meitei),21,থাম্বি,4.72,12
+culture,Manipuri (Meitei),22,নাচ,4.66,22
+culture,Manipuri (Meitei),23,স্বাদ,4.64,12
+culture,Manipuri (Meitei),24,আঙিনায়,4.59,11
+culture,Manipuri (Meitei),25,কীর্তন,4.58,7
+culture,Mro,1,ম্রো,15.46,80
+culture,Mro,2,পাহাড়ের,10.56,263
+culture,Mro,3,পাড়ার,9.34,63
+culture,Mro,4,শূকর,8.2,22
+culture,Mro,5,জুমের,7.88,57
+culture,Mro,6,পানি,7.28,90
+culture,Mro,7,মার,7.1,17
+culture,Mro,8,আগুনের,7.01,53
+culture,Mro,9,পাহাড়,6.68,96
+culture,Mro,10,রেংমা,6.24,13
+culture,Mro,11,ঝর্নার,6.0,15
+culture,Mro,12,আচার,5.78,19
+culture,Mro,13,খুমি,5.74,14
+culture,Mro,14,মাছটি,5.69,12
+culture,Mro,15,খাবার,5.53,32
+culture,Mro,16,বাঁশের,5.51,74
+culture,Mro,17,পাড়ায়,5.46,25
+culture,Mro,18,নিষেধ,5.37,15
+culture,Mro,19,ভালুক,5.33,9
+culture,Mro,20,ঝুম,5.25,13
+culture,Mro,21,কার্বারি,5.24,17
+culture,Mro,22,বিনয়,5.16,9
+culture,Mro,23,মোরগ,5.16,10
+culture,Mro,24,নানি,5.06,12
+culture,Mro,25,পাখি,5.03,23
+culture,Tripura,1,খোক্কো,8.77,24
+culture,Tripura,2,জুম,7.97,56
+culture,Tripura,3,রস,7.23,18
+culture,Tripura,4,রামচরণ,7.02,17
+culture,Tripura,5,বুড়া,6.66,17
+culture,Tripura,6,হরিণ,6.29,18
+culture,Tripura,7,জুমের,6.15,48
+culture,Tripura,8,রাঙা,5.88,12
+culture,Tripura,9,বৃক্ষটি,5.83,16
+culture,Tripura,10,ছড়ার,5.8,11
+culture,Tripura,11,জুমে,5.72,13
+culture,Tripura,12,রেংমা,5.47,11
+culture,Tripura,13,পাঁচ,5.47,13
+culture,Tripura,14,পাখিটা,5.38,11
+culture,Tripura,15,রামচন্দ্র,5.34,9
+culture,Tripura,16,বাঁশের,5.33,72
+culture,Tripura,17,রাজার,5.23,19
+culture,Tripura,18,বুনো,5.21,25
+culture,Tripura,19,বাঁশঝাড়ের,5.1,11
+culture,Tripura,20,রূপা,5.06,8
+culture,Tripura,21,বীরু,5.01,14
+culture,Tripura,22,ধৈর্য,4.99,15
+culture,Tripura,23,বোনা,4.95,21
+culture,Tripura,24,বিহু,4.88,14
+culture,Tripura,25,ছেলেটি,4.86,14
+culture,Oraon (Kurukh),1,করম,14.69,81
+culture,Oraon (Kurukh),2,ডাল,11.55,62
+culture,Oraon (Kurukh),3,পাহান,10.08,51
+culture,Oraon (Kurukh),4,মাদল,9.17,27
+culture,Oraon (Kurukh),5,কর্ম,8.21,22
+culture,Oraon (Kurukh),6,করমের,8.17,21
+culture,Oraon (Kurukh),7,মাদলের,7.94,22
+culture,Oraon (Kurukh),8,শাল,7.8,28
+culture,Oraon (Kurukh),9,জননী,7.69,20
+culture,Oraon (Kurukh),10,চম্পা,7.19,19
+culture,Oraon (Kurukh),11,শালগাছের,6.97,16
+culture,Oraon (Kurukh),12,বৃক্ষের,6.75,29
+culture,Oraon (Kurukh),13,বালু,6.54,14
+culture,Oraon (Kurukh),14,গাছের,6.51,111
+culture,Oraon (Kurukh),15,ছাগল,6.39,18
+culture,Oraon (Kurukh),16,ঠাকুর,6.33,14
+culture,Oraon (Kurukh),17,আখড়ায়,6.18,14
+culture,Oraon (Kurukh),18,নাচ,6.07,27
+culture,Oraon (Kurukh),19,ধরিত্রী,6.02,13
+culture,Oraon (Kurukh),20,কাকির,5.9,11
+culture,Oraon (Kurukh),21,মুনি,5.88,11
+culture,Oraon (Kurukh),22,রামু,5.79,19
+culture,Oraon (Kurukh),23,আপনাকে,5.73,19
+culture,Oraon (Kurukh),24,বড়ো,5.69,15
+culture,Oraon (Kurukh),25,বনদেবতা,5.68,13
+culture,Hajong,1,রামু,9.99,33
+culture,Hajong,2,হাজং,7.35,127
+culture,Hajong,3,ধানের,6.54,63
+culture,Hajong,4,ঠাকুমা,6.49,16
+culture,Hajong,5,রামচরণ,6.27,15
+culture,Hajong,6,বাতি,5.79,13
+culture,Hajong,7,ধান,5.77,105
+culture,Hajong,8,মোড়ল,5.72,22
+culture,Hajong,9,বীরেন,5.63,11
+culture,Hajong,10,গরুগুলো,5.53,10
+culture,Hajong,11,ভাত,5.51,34
+culture,Hajong,12,সোমেশ্বরী,5.49,12
+culture,Hajong,13,তীরে,5.46,27
+culture,Hajong,14,মঙ্গলা,5.32,9
+culture,Hajong,15,ঠাকুমার,5.26,9
+culture,Hajong,16,মিলন,5.17,11
+culture,Hajong,17,জনগণের,5.05,8
+culture,Hajong,18,অনন্ত,4.99,8
+culture,Hajong,19,বুঝি,4.99,14
+culture,Hajong,20,কুয়োর,4.89,10
+culture,Hajong,21,অমাবস্যার,4.79,9
+culture,Hajong,22,নদীর,4.72,131
+culture,Hajong,23,গাঁওর,4.72,7
+culture,Hajong,24,কুন্তল,4.7,8
+culture,Hajong,25,ছেলেদের,4.6,10
+culture,Rakhine,1,মং,24.29,195
+culture,Rakhine,2,নৌকা,14.26,65
+culture,Rakhine,3,সমুদ্রের,14.25,112
+culture,Rakhine,4,সমুদ্র,13.6,59
+culture,Rakhine,5,ঢেউ,11.14,46
+culture,Rakhine,6,থুই,11.01,39
+culture,Rakhine,7,জাল,10.34,38
+culture,Rakhine,8,কিয়াং,10.1,32
+culture,Rakhine,9,নৌকার,10.09,34
+culture,Rakhine,10,মাছ,9.48,97
+culture,Rakhine,11,বিহারের,9.12,26
+culture,Rakhine,12,নোনা,8.5,28
+culture,Rakhine,13,থোয়াইং,8.47,24
+culture,Rakhine,14,হ্লা,8.24,22
+culture,Rakhine,15,ঢেউয়ের,7.66,21
+culture,Rakhine,16,নৌকায়,7.47,19
+culture,Rakhine,17,বৃক্ষের,7.37,31
+culture,Rakhine,18,বাঁশটি,7.26,17
+culture,Rakhine,19,জেলে,7.26,17
+culture,Rakhine,20,মাই,7.14,17
+culture,Rakhine,21,থাই,6.95,20
+culture,Rakhine,22,পল্লীর,6.93,16
+culture,Rakhine,23,সাগরের,6.9,28
+culture,Rakhine,24,সানু,6.84,15
+culture,Rakhine,25,থামি,6.65,15

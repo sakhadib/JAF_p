@@ -1,0 +1,6 @@
+model,mean_jaccard
+google_gemini-3-flash-preview,0.0911427594828223
+mistralai_mistral-large-2512,0.08676002665312828
+openai_gpt-5-mini,0.09221160352927099
+openai_gpt-5.1,0.13780158919204727
+qwen_qwen3-8b,0.0778195661230728

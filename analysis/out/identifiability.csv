@@ -1,0 +1,9 @@
+task,condition,acc,macro_f1
+culture_12way,raw,0.6010016694490818,0.6006752605514781
+culture_12way,masked,0.4657762938230384,0.46381303691743064
+culture_by_model,google_gemini-3-flash-preview,0.7083333333333334,0.7074482429173504
+culture_by_model,mistralai_mistral-large-2512,0.38333333333333336,0.392478101533829
+culture_by_model,openai_gpt-5-mini,0.225,0.23094001966410768
+culture_by_model,openai_gpt-5.1,0.6166666666666667,0.6138646203459773
+culture_by_model,qwen_qwen3-8b,0.06722689075630252,0.07175925925925926
+model_5way,raw,1.0,1.0

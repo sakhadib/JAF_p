@@ -1,0 +1,6 @@
+model,n,unique_openings,pct_unique,top_opening,top_count
+google_gemini-3-flash-preview,120,94,78.33333333333333,অনেক অনেক কাল আগের কথা,7
+mistralai_mistral-large-2512,120,112,93.33333333333333,নদীর অভিশাপ ও বনের আশীর্বাদ,2
+openai_gpt-5-mini,120,120,100.0,কথিত আছে আগে কোথাও গ্রাম,1
+openai_gpt-5.1,120,118,98.33333333333333,অনেক দিন আগের কথা পাহাড়ের,2
+qwen_qwen3-8b,119,119,100.0,গোটা বন ঘুরে বেড়ানো ছাড়া,1

@@ -1,0 +1,37 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 r_ling   R-squared:                       0.327
+Model:                            OLS   Adj. R-squared:                  0.315
+Method:                 Least Squares   F-statistic:                     25.94
+Date:                Sat, 10 Oct 2026   Prob (F-statistic):           5.37e-44
+Time:                        00:11:14   Log-Likelihood:                -519.03
+No. Observations:                 599   AIC:                             1062.
+Df Residuals:                     587   BIC:                             1115.
+Df Model:                          11                                         
+Covariance Type:            nonrobust                                         
+============================================================================================================
+                                               coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------------------------------------
+Intercept                                    1.6966      1.634      1.038      0.300      -1.513       4.906
+C(model)[T.mistralai_mistral-large-2512]     0.0121      0.242      0.050      0.960      -0.464       0.488
+C(model)[T.openai_gpt-5-mini]               -0.0496      0.142     -0.349      0.727      -0.329       0.230
+C(model)[T.openai_gpt-5.1]                   0.8380      0.137      6.120      0.000       0.569       1.107
+C(model)[T.qwen_qwen3-8b]                    0.2012      0.283      0.710      0.478      -0.356       0.758
+log_tokens                                  -0.0885      0.188     -0.471      0.638      -0.457       0.280
+mattr50                                      0.2306      1.070      0.216      0.829      -1.871       2.332
+sadhu_per1k                                 -0.1206      0.076     -1.589      0.113      -0.270       0.028
+oral_frame                                   0.1080      0.034      3.217      0.001       0.042       0.174
+has_bold                                    -0.2799      0.223     -1.256      0.210      -0.718       0.158
+emdash_per1k                                 0.0059      0.004      1.583      0.114      -0.001       0.013
+rep_4gram                                    0.5486      0.708      0.775      0.439      -0.842       1.939
+==============================================================================
+Omnibus:                      143.822   Durbin-Watson:                   1.347
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              404.705
+Skew:                           1.171   Prob(JB):                     1.32e-88
+Kurtosis:                       6.275   Cond. No.                     1.60e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.6e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
