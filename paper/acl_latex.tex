@@ -1,5 +1,3 @@
-% Compile with XeLaTeX (required for the Bangla examples).
-%   xelatex acl_latex && bibtex acl_latex && xelatex acl_latex && xelatex acl_latex
 \documentclass[11pt]{article}
 
 % Change "review" to "final" to generate the final (sometimes called camera-ready) version.
@@ -10,17 +8,20 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
 
-% These font commands require XeLaTeX or LuaLaTeX, not pdfLaTeX.
 \usepackage{fontspec}
-\setmainfont{TeX Gyre Termes}          % Times-compatible, per the ACL template
+\setmainfont{TeX Gyre Termes}
 \newfontfamily\bnfont[Path=./,Script=Bengali,Renderer=HarfBuzz]{kalpurush.ttf}
 
-% Bangla inline span. Script=Bengali enables the GSUB conjunct substitutions,
-% without which ligatures such as ভান্তে and ব্রাহ্মণ render as broken glyph
-% sequences.
+\definecolor{jafblue}{HTML}{2F6F9F}
+\definecolor{jafrust}{HTML}{C2705A}
+\definecolor{jafgrey}{HTML}{6B7280}
+
+% Bangla inline span.
 \newcommand{\bn}[1]{{\bnfont #1}}
-% Bangla term followed by transliteration and gloss.
+% Bangla term with transliteration and gloss.
 \newcommand{\bng}[3]{\bn{#1} \textit{#2} `#3'}
 
 \title{Model, Not Culture: What Expert Ratings of 599 LLM-Generated Bangla
@@ -175,8 +176,44 @@ rating, treating \emph{culture as a controlled variable}.
 \section{The JAF Corpus}
 \label{sec:corpus}
 
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+  font=\footnotesize,
+  bx/.style={draw=jafblue,rounded corners=1.5pt,align=center,inner sep=3.2pt,
+             minimum height=6.2mm,text width=55mm,fill=white,line width=.45pt},
+  res/.style={bx,draw=jafrust,fill=jafrust!6},
+  br/.style={draw=jafblue,rounded corners=1.5pt,align=center,inner sep=3.2pt,
+             minimum height=12mm,text width=23mm,fill=white,line width=.45pt},
+  ar/.style={-{Stealth[length=4pt,width=3.2pt]},jafgrey,line width=.5pt},
+]
+\node[bx] (d) at (0,0) {12 cultures $\times$ 10 story types\\[-1.5pt]{\scriptsize fully crossed}};
+\node[bx] (p) at (0,-1.25) {120 Bangla prompts\\[-1.5pt]{\scriptsize one template; culture and type substituted}};
+\node[bx] (m) at (0,-2.5) {5 models $\times$ 1 generation};
+\node[res] (c) at (0,-3.5) {\textbf{599 stories}};
+\node[br] (r) at (-1.62,-5.05) {4 experts rate\\all 599\\[1.5pt]\textbf{9{,}584}\\\textbf{judgments}};
+\node[br] (t) at (1.62,-5.05) {Text analysis\\[1.5pt]{\scriptsize stylometry,\\lexicons,\\classifiers}};
+\node[res] (j) at (0,-6.5) {\textbf{Joint analysis} (\S\ref{sec:beyond})};
+\draw[ar] (d) -- (p);
+\draw[ar] (p) -- (m);
+\draw[ar] (m) -- (c);
+\draw[ar] (c.south) -- ++(0,-0.25) -| (r.north);
+\draw[ar] (c.south) -- ++(0,-0.25) -| (t.north);
+\coordinate (jm) at (0,-6.05);
+\draw[jafgrey,line width=.5pt] (r.south) |- (jm);
+\draw[jafgrey,line width=.5pt] (t.south) |- (jm);
+\draw[ar] (jm) -- (j.north);
+\end{tikzpicture}
+\caption{Corpus construction and analysis. The design is fully crossed, and
+every story is rated by all four experts, so no item is judged by a different
+subset of raters than any other. The two analysis branches are combined in
+\S\ref{sec:beyond}.}
+\label{fig:pipeline}
+\end{figure}
+
 \paragraph{Design.}
-The corpus crosses 12 cultures, 10 story types and 5 models. Cultures are
+The corpus crosses 12 cultures, 10 story types and 5 models
+(Figure~\ref{fig:pipeline}). Cultures are
 Bengali, Chakma, Marma, Santal, Garo (Mandi), Khasi, Manipuri (Meitei), Mro,
 Tripura, Hajong, Rakhine and Oraon (Kurukh). They span four unrelated
 language families, three cultural-geographic zones and five religious
@@ -302,15 +339,7 @@ except gpt-5.1 on cultural accuracy and contextual fit.}
 \label{tab:models}
 \end{table}
 
-\begin{figure}[t]
-\centering
-\includegraphics[width=\columnwidth]{figures/fig1_model_by_dimension.png}
-\caption{Mean expert rating by model and dimension. Linguistic register is the
-floor for every model.}
-\label{fig:models}
-\end{figure}
-
-Table~\ref{tab:models} and Figure~\ref{fig:models} give the headline result.
+Table~\ref{tab:models} gives the headline result.
 The ceiling is 2.79 of 5.
 Four of five models sit below the scale midpoint on every dimension, and the
 ordering is stable across dimensions. This is not a leaderboard in which a
@@ -787,7 +816,7 @@ estimators and statistical procedures, and to draft portions of this
 manuscript, under author direction and review. Two implementation errors
 introduced in that process were caught by the validation procedures described
 in Appendix~\ref{sec:appendix} --- a mis-normalised Krippendorff's $\alpha$ and
-a suffix-matching bug --- which is why those checks are released as tests. The
+a suffix-matching bug. The
 religious lexicons, the expected-tradition mapping and all interpretive claims
 were author-verified against the sources cited in Appendix~\ref{sec:cultures}.
 The authors take full responsibility for the content of the paper.
@@ -925,12 +954,5 @@ stratified cross-validation with TF-IDF features and logistic regression.
 Distinctive vocabulary uses the log-odds ratio with an informative Dirichlet
 prior, with the corpus itself as prior. Within-model analyses use group-mean
 centring on both the feature and the rating.
-
-\paragraph{Typesetting.} Bangla examples are set in Kalpurush via
-\texttt{fontspec} with \texttt{Script=Bengali}; the paper must be compiled with
-XeLaTeX, since pdf\LaTeX{} cannot perform the conjunct substitutions and
-renders ligatures such as \bn{ব্রাহ্মণ} as broken glyph sequences. Word clouds
-in the released analysis have the same requirement. Chart labels are in English
-because the plotting library does not shape Bangla.
 
 \end{document}

@@ -48,10 +48,13 @@ cd paper
 xelatex acl_latex && bibtex acl_latex && xelatex acl_latex && xelatex acl_latex
 ```
 
-XeLaTeX is required — pdfLaTeX cannot shape the Bangla conjuncts. Current state:
-no errors, no undefined references, no missing glyphs, 33/33 citations resolve,
-numbered content 8 pages (the limit), Limitations and Ethics excluded as ARR
-allows.
+XeLaTeX is required — pdfLaTeX cannot shape the Bangla conjuncts, and will
+render ligatures such as ব্রাহ্মণ as broken glyph sequences. This is a build
+requirement only; the paper itself says nothing about how it was produced.
+
+Current state: no errors, no undefined references, no missing glyphs, 33/33
+citations resolve, numbered content 8 pages (the limit), Limitations and Ethics
+excluded as ARR allows.
 
 Before uploading: switch `\usepackage[review]{acl}` to `final` only after
 acceptance, keep acknowledgements out of the review version, and check that the
