@@ -4,6 +4,11 @@
 % Change to "preprint" to generate a non-anonymous version with page numbers.
 \usepackage[review]{acl}
 
+% Place line numbers by the output routine once each page is complete, so the
+% column a line lands in is known; keep the numbering continuous.
+\pagewiselinenumbers
+\runningpagewiselinenumbers
+
 \usepackage{microtype}
 \usepackage{graphicx}
 \usepackage{booktabs}
@@ -452,7 +457,7 @@ quarter of the apparent cultural signal was the model naming the group.
 
 Per model, after masking (chance $= 0.083$):
 
-\begin{table}[h]
+\begin{table}[t]
 \centering\small
 \begin{tabular}{lcc}
 \toprule
@@ -570,7 +575,7 @@ contains exactly such glossing, as in \bn{নায়কে (পুরোহি
 be glosses. Tiering the lexicon accordingly, over the 399 stories for
 communities where Hinduism is not an expected tradition:
 
-\begin{table}[h]
+\begin{table}[t]
 \centering\small
 \begin{tabular}{lccc}
 \toprule
@@ -825,6 +830,7 @@ The authors take full responsibility for the content of the paper.
 \bibliography{references,cultures}
 
 \appendix
+
 
 \clearpage
 \section{The Twelve Communities}
