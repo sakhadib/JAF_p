@@ -1,0 +1,63 @@
+This repository contains two kinds of material under two licences.
+
+================================================================================
+1. CORPUS AND ANNOTATIONS  —  Creative Commons Attribution 4.0 International
+================================================================================
+Applies to: res.json (599 generated stories, expert annotations, prompt
+metadata) and any derived data tables in analysis/out/.
+
+You are free to share and adapt this material for any purpose, including
+commercially, provided you give appropriate credit, link to the licence, and
+indicate if changes were made.
+
+Full licence text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+NOTE ON MODEL OUTPUTS. The stories in res.json are outputs of third-party
+language models (OpenAI, Google, Mistral, Alibaba/Qwen). Each provider's terms
+of use assign rights in generated output to the requesting user, and this
+corpus is redistributed on that basis for research use. Provider terms change;
+anyone reusing the stories should check the current terms of the provider
+concerned.
+
+NOTE ON CULTURAL CONTENT. These stories are machine-generated research
+artifacts and evaluation targets. They are NOT authentic folklore of the Bengali,
+Chakma, Marma, Santal, Garo (Mandi), Khasi, Manipuri (Meitei), Mro, Tripura,
+Hajong, Rakhine or Oraon (Kurukh) communities, and the accompanying paper
+documents specific ways in which they misrepresent those communities. Do not
+redistribute them as cultural documentation.
+
+================================================================================
+2. ANALYSIS CODE  —  MIT Licence
+================================================================================
+Applies to: analysis/*.py, analysis/tests/.
+
+Copyright (c) 2026 The JAF authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+3. THIRD-PARTY ASSETS
+================================================================================
+paper/kalpurush.ttf and analysis/fonts/NotoSansBengali-*.ttf are redistributed
+under their own licences (Kalpurush: free Bangla font by Omicronlab;
+Noto Sans Bengali: SIL Open Font Licence 1.1). They are not covered by the
+licences above.
+
+paper/acl.sty, paper/acl_natbib.bst and the other ACL template files are
+redistributed from the official ACL style files repository under their own terms.

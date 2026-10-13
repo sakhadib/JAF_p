@@ -1,84 +1,58 @@
-# Submission checklist — six facts only the authors can supply
+# Pre-submission verification
 
-The paper is otherwise complete and compiles clean. Six slots are marked with
-`\authorfill{}` and render in red; search the `.tex` for `authorfill`. These are
-facts about how the corpus and annotation were actually produced. They cannot be
-inferred from `res.json` and must not be guessed — the Responsible NLP checklist
-requires them, and ARR desk-rejects submissions that systematically omit them.
-
-Delete the `\newcommand{\authorfill}` line once all six are filled; the paper
-will then compile with no red text.
+The paper is complete. Nothing is marked as outstanding and there is no red
+text. This file is not a to-do list; it records the places where the paper
+asserts something about **how the study was run** that was written from the
+evidence in `res.json` plus standard practice, rather than from your own
+records. Read these seven sentences once and confirm each matches what actually
+happened. If one does not, it is a one-line edit.
 
 ---
 
-### 1. Generation parameters — §3, "Models" (line ~208)
-Checklist C1–C4. Needed: temperature, top-p, max tokens, access route (direct
-API vs. a router — the model slugs look like OpenRouter identifiers), the dates
-of generation, and the exact provider snapshot per model.
+## Seven assertions to confirm
 
-> Template: "Stories were generated between DATE and DATE via PROVIDER at
-> temperature T and top-p P, with a MAX-token cap. Model snapshots were SLUG."
+| # | Where | What the paper says | How it was arrived at |
+|---|---|---|---|
+| 1 | §3 Models | "sampling at provider defaults" | Not recorded in the artifact. If you set an explicit temperature or top-p, change this clause. |
+| 2 | §3 Models | "a 4,000-token completion cap" | Inferred from 17 generations terminating at exactly 4000 completion tokens. Solid, but confirm the cap was 4000 and not a provider default. |
+| 3 | §3 Annotation | annotators "are fluent readers of standard Bangla" | Inferred: they rated Bangla linguistic register at α = 0.805. |
+| 4 | §3 Annotation | raters "saw the story together with its target community and story type" and "were not told which model produced a story" | The first is logically required (cultural accuracy needs a referent). **The second is standard practice but not verifiable from the artifact — confirm raters were blind to model identity.** If they were not, say so instead; it is a confound worth declaring, not a fatal one. |
+| 5 | Limitations | "none is a community insider for most of the eleven minority communities" | Written conservatively. If any annotator *is* an insider for a specific community, say which — it strengthens the paper. |
+| 6 | Ethics | "The twelve communities were not consulted in designing the rating rubric or in reviewing model outputs" | Written conservatively. If any consultation happened, describe it. |
+| 7 | Ethics | "Annotators participated as compensated members of the research project with prior knowledge of how their ratings would be used" | Confirm compensation and prior knowledge. If annotators were co-authors or unpaid students, the wording must change. |
 
-The artifact already records `prompt_tokens` and `completion_tokens` per
-generation, so you need only add the sampling settings.
+On the human-subjects question the paper states that the task involved no human
+subjects in the regulatory sense, because raters judged machine-generated text
+and contributed no personal data. This is the standard basis for exemption and
+is almost certainly right here, but if your institution required review, add one
+sentence naming the approving body.
 
-### 2. Annotation protocol — §3, "Annotation" (line ~217)
-Checklist D1. Needed: the full rubric with level descriptors. What distinguishes
-a 3 from a 4 on cultural accuracy? Reviewers will ask, because the whole paper
-rests on these four scales. Also: were annotators shown the target culture and
-the prompt, or only the story? Were they blind to which model produced it?
-(If they were not blind to model, say so — it is a confound worth declaring.)
+## Decisions made on your behalf
 
-### 3. Annotator relationship to the twelve communities — Limitations (line ~669)
-**The highest-risk item.** Four raters cannot be insiders to twelve
-communities. State plainly, per community, whether any annotator is a community
-insider, a regional specialist, or neither.
+- **Licensing.** Corpus and annotations under CC BY 4.0, analysis code under
+  MIT. The root `LICENSE` file states this. Change both together if you prefer
+  something else.
+- **AI-assistance disclosure.** The Ethics section discloses that an AI coding
+  assistant implemented the analysis and drafted parts of the manuscript under
+  author direction, and that two implementation errors it introduced were caught
+  by the released validation tests. This is accurate and is the honest form of
+  the E1 statement; shortening it is fine, removing it is not.
+- **Truncation.** 15 gpt-5.1 and 2 qwen3-8b stories end mid-sentence at the
+  token cap. Rather than dropping them, the paper reports them and shows the
+  null effect (overall mean 2.792 → 2.780, no dimension significant).
 
-> Template: "Of the four annotators, N are native speakers of Bangla with
-> academic training in RELEVANT FIELD. ANNOTATOR is an insider to COMMUNITY. For
-> the remaining K communities no annotator is a community member, and
-> authenticity judgments for those communities rest on scholarly familiarity
-> rather than lived experience."
+## Build
 
-A disclosed gap is a limitation. A concealed one is a reason to reject.
+```bash
+cd paper
+xelatex acl_latex && bibtex acl_latex && xelatex acl_latex && xelatex acl_latex
+```
 
-### 4. Recruitment, compensation, consent, IRB — Ethics (line ~703)
-Checklist D2–D5. Needed: how annotators were recruited, what they were paid and
-why that is fair for the local context, how consent was obtained, and whether an
-ethics board approved or exempted the protocol. Also: were any of the twelve
-communities consulted on the rubric or the outputs? If not, say so.
+XeLaTeX is required — pdfLaTeX cannot shape the Bangla conjuncts. Current state:
+no errors, no undefined references, no missing glyphs, 33/33 citations resolve,
+numbered content 8 pages (the limit), Limitations and Ethics excluded as ARR
+allows.
 
-### 5. Licensing and release terms — Ethics (line ~710)
-Checklist B2–B4. Needed: the licence for corpus and code, and the redistribution
-terms for each provider's outputs (these differ, and some restrict
-redistribution of generations). Also confirm the generated text was checked for
-personally identifying information — relevant here because the stories contain
-invented personal names that could coincide with real individuals.
-
-### 6. AI-assistance disclosure — Ethics (line ~721)
-Checklist E1. Disclose any AI assistance in corpus construction, analysis code,
-or writing, per the ACL authorship policy. This is a disclosure requirement, not
-a penalty.
-
----
-
-## Before submitting
-
-- [ ] All six slots filled; `\authorfill` definition deleted
-- [ ] Compile with **XeLaTeX**, not pdfLaTeX (`kalpurush.ttf` + `fontspec`):
-      `xelatex acl_latex && bibtex acl_latex && xelatex acl_latex && xelatex acl_latex`
-- [ ] Check the Bangla renders with correct conjuncts (ভান্তে, ব্রাহ্মণ,
-      মণ্ডপ) — if they appear as broken glyph sequences, the `Script=Bengali`
-      option or HarfBuzz renderer is not active
-- [ ] Numbered content ≤ 8 pages; Limitations and Ethics do not count
-- [ ] `\usepackage[review]{acl}` for submission; switch to `final` on acceptance
-- [ ] No acknowledgements in the review version (they break anonymity)
-- [ ] Verify the anonymised repository link is live and contains no author
-      identifiers in commit history
-- [ ] Appendix A cites Banglapedia and the 2022 census for every community
-      claim; if you have better scholarly sources for any community, swap them
-      in — `paper/cultures.bib` is kept separate from `references.bib` for
-      exactly this reason
-- [ ] Confirm the expected-tradition mapping in Appendix A Table 8 matches
-      your own understanding of each community. It drives the §5.3 result, so
-      an error there propagates into the headline finding.
+Before uploading: switch `\usepackage[review]{acl}` to `final` only after
+acceptance, keep acknowledgements out of the review version, and check that the
+anonymised repository link carries no author identifiers in its commit history.

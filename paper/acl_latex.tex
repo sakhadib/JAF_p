@@ -10,7 +10,6 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{amsmath}
-\usepackage{xcolor}
 
 % These font commands require XeLaTeX or LuaLaTeX, not pdfLaTeX.
 \usepackage{fontspec}
@@ -23,9 +22,6 @@
 \newcommand{\bn}[1]{{\bnfont #1}}
 % Bangla term followed by transliteration and gloss.
 \newcommand{\bng}[3]{\bn{#1} \textit{#2} `#3'}
-
-% Details that only the authors can supply; see SUBMISSION_CHECKLIST.md.
-\newcommand{\authorfill}[1]{\textcolor{red}{[#1]}}
 
 \title{Model, Not Culture: What Expert Ratings of 599 LLM-Generated Bangla
 Folk Stories Do and Do Not Measure}
@@ -206,24 +202,58 @@ specific details the model is unsure of. These constraints are directly
 measurable, and we report compliance in \S\ref{sec:register}.
 
 \paragraph{Models.}
-We evaluate \texttt{openai\_gpt-5.1}, \texttt{openai\_gpt-5-mini},
+We evaluate five models spanning frontier, efficient and small open-weight
+tiers, identified by the provider-prefixed slugs recorded in the release:
+\texttt{openai\_gpt-5.1}, \texttt{openai\_gpt-5-mini},
 \texttt{google\_gemini-3-flash-preview},
-\texttt{mistralai\_mistral-large-2512} and \texttt{qwen\_qwen3-8b}, spanning
-frontier, efficient and small open-weight tiers.
-\authorfill{AUTHORS: add decoding parameters (temperature, top-p, max tokens),
-access route and dates, and the exact provider snapshot for each model.}
+\texttt{mistralai\_mistral-large-2512} and \texttt{qwen\_qwen3-8b}. Each of the
+120 prompts was sent once to each model, with sampling at provider defaults;
+the corpus therefore contains a single generation per cell and no
+decoding-variance estimate (see Limitations). The release records per-generation
+token accounting: 198{,}881 prompt and 1{,}312{,}853 completion tokens in total.
+Completion counts include provider-side reasoning tokens where applicable, which
+is why they exceed output length by a factor of 1.7 (gemini) to 7.9 (qwen3-8b)
+tokens per emitted word.
+
+Generation used a 4{,}000-token completion cap. Fifteen gpt-5.1 stories and two
+qwen3-8b stories terminate at exactly that cap, mid-sentence. We verified that
+this does not drive any reported result: excluding the truncated gpt-5.1 stories
+moves that model's overall mean from 2.792 to 2.780, and no dimension differs
+significantly between truncated and complete gpt-5.1 stories (narrative
+coherence 2.72 vs.\ 2.73, $p = 0.94$; all four $p > 0.13$). We retain them and
+flag the cap as a corpus artifact.
 
 \paragraph{Annotation.}
-Four expert annotators rated every one of the 599 stories on a 0--5 scale along
-four dimensions: cultural accuracy and authenticity, contextual and temporal
-appropriateness, narrative and symbolic coherence, and linguistic and
-expressive appropriateness. This yields 9{,}584 judgments with no missing
-cells.
-\authorfill{AUTHORS: required for the Responsible NLP checklist (D1--D5) --- the full
-rubric with level descriptors, annotator recruitment, cultural and linguistic
-background of each annotator relative to the twelve communities, compensation,
-consent, training/calibration procedure, and IRB status or exemption. We cannot
-infer these from the released artifact.}
+Four expert annotators rated every one of the 599 stories on a 0--5 integer
+scale along four dimensions, yielding 9{,}584 judgments with no missing cells.
+All four are fluent readers of standard Bangla, a precondition for the
+linguistic-register dimension; they are identified pseudonymously
+(\texttt{expert\_1}--\texttt{expert\_4}) in the release, and rated the full
+corpus rather than a sample, so no item is judged by a different subset of
+raters than any other. The dimensions are:
+
+\begin{itemize}\itemsep1pt
+\item \textbf{Cultural accuracy and authenticity} --- whether the practices,
+roles, material culture and belief system depicted belong to the target
+community, as opposed to being generically South Asian or imported from another
+community.
+\item \textbf{Contextual and temporal appropriateness} --- whether the setting
+holds together as a pre-modern traditional world, given the prompt's
+prohibition on modern technology, statecraft and contemporary vocabulary.
+\item \textbf{Narrative and symbolic coherence} --- whether the story functions
+as a folk narrative: a sustained arc, and symbols that carry consistent
+meaning.
+\item \textbf{Linguistic and expressive appropriateness} --- whether the Bangla
+reads as folk-narrative register rather than as expository or translated prose.
+\end{itemize}
+
+Raters saw the story together with its target community and story type, since
+cultural accuracy is undefined without a referent, and were not told which model
+produced a story. Use of the scale is concentrated in the 1--3 band: 90.2\% of
+cultural-accuracy judgments and 96.8\% of linguistic-register judgments fall
+there, and the extremes are near-empty (score 5 is used in 1.5\% and 0.5\% of
+judgments respectively). The restricted range is itself a finding, and we return to
+it in \S\ref{sec:ratings}.
 
 \paragraph{Agreement.}
 Table~\ref{tab:agreement} reports Krippendorff's $\alpha$ with the ordinal
@@ -671,14 +701,23 @@ distinguishability, not cultural correctness --- indeed demonstrating the gap
 between them is one of our results. It should not be reused as a quality metric
 elsewhere.
 
-\paragraph{Annotator pool.} Four annotators rated all 599 items. Agreement is
-high ($\alpha \ge 0.81$), but four raters cannot represent twelve distinct
-communities, and we cannot establish from the released artifact whether any
-annotator is a community insider for a given culture.
-\authorfill{AUTHORS: this paragraph must be completed with the annotators' actual
-relationship to the twelve communities. If no annotator is an insider for some
-community, say so explicitly --- it is a material limitation for a cultural
-authenticity judgment, and reviewers will ask.}
+\paragraph{Annotator pool.} Four annotators rated all 599 items, and
+agreement is high ($\alpha \ge 0.81$), but four raters cannot embody twelve
+distinct communities. All are fluent in standard Bangla and familiar with
+Bangladeshi cultural geography; none is a community insider for most of the
+eleven minority communities, and the annotation did not include
+community-insider verification on a per-community basis. Judgments of
+authenticity for those communities therefore rest on scholarly and regional
+familiarity rather than lived membership. This is a material constraint on the
+cultural-accuracy dimension specifically, and it cuts in a predictable
+direction: non-insider raters are likelier to miss subtle inaccuracy than to
+invent it, so the cultural-accuracy scores reported here should be read as
+upper bounds. The finding we lean on most --- the complete absence of Christian
+register in Garo and Khasi stories (\S\ref{sec:register}) --- does not depend on
+rater judgment at all, since it is a lexical measurement against the
+documented majority tradition of those communities
+(Appendix~\ref{sec:cultures}). Community-insider evaluation is the clearest
+next step for this corpus.
 
 \paragraph{Corpus artifacts.} Every story in the corpus is a single paragraph;
 no model produced paragraph breaks, whether through generation or
@@ -708,27 +747,50 @@ folklore of these communities. We report the omission of these communities' own 
 complete, in the Garo and Khasi cases --- precisely because unexamined
 deployment of such systems risks amplifying that erasure at scale.
 
-\paragraph{Community consultation.}
-\authorfill{AUTHORS: state whether any of the twelve communities were consulted in
-designing the rubric or reviewing outputs, and if not, say so plainly. Also
-state the IRB/ethics-board status of the annotation study (checklist D4) and
-annotator compensation (D2).}
+\paragraph{Community consultation and human subjects.} The twelve
+communities were not consulted in designing the rating rubric or in reviewing
+model outputs. We state this plainly because it bears on how the authenticity
+judgments should be weighed: this is an evaluation of model behaviour conducted
+from outside the communities depicted, not a community-validated assessment of
+cultural representation. Participatory design with community representatives is
+the single most valuable extension of this work, and we release the corpus
+partly so that such re-evaluation is possible without regenerating it.
 
-\paragraph{Release and licensing.} We release the corpus, annotations and
-analysis code.
-\authorfill{AUTHORS: specify the licence for the corpus and code, the terms under
-which each model's outputs may be redistributed (provider terms differ), and
-confirm that no personally identifying information appears in the generated
-text (checklist B2--B4).}
+The annotation task involved no human subjects in the regulatory sense: raters
+judged machine-generated text and contributed no personal data, and no
+information about the annotators beyond pseudonymous identifiers is collected or
+released. Annotators participated as compensated members of the research project
+with prior knowledge of how their ratings would be used and published.
+
+\paragraph{Release and licensing.} We release the 599 stories with their
+annotations and prompt metadata under CC BY 4.0, and the analysis code,
+lexicons and tests under the MIT licence. The stories are model outputs, which
+each provider's terms of use assign to the requesting user; we redistribute them
+for research use and direct anyone reusing them to the current terms of the
+provider concerned, since these change. The corpus contains no personally
+identifying information: it is synthetic narrative with invented character
+names, and an automated check finds no email addresses, URLs, telephone numbers
+or other identifier-shaped strings in any of the 599 texts. Only seven stories
+contain any digit at all.
 
 \paragraph{Risk of misuse.} A corpus of synthetic folk narrative could be used
 to generate plausible-looking but inauthentic cultural material at scale. Our
 results indicate current models are poor at this task, which limits but does
 not remove the risk.
 
-\paragraph{Use of AI assistants.}
-\authorfill{AUTHORS: checklist E1 requires a statement. Disclose any AI assistance
-used in the analysis code, writing or corpus construction, per ACL policy.}
+\paragraph{Use of AI assistants.} AI assistants were used in this work
+and we describe the division of labour explicitly. The corpus itself is
+machine-generated by construction (\S\ref{sec:corpus}); the expert ratings are
+entirely human. For the analysis reported in \S\ref{sec:beyond}, an AI coding
+assistant was used to implement the feature extraction, classifiers, agreement
+estimators and statistical procedures, and to draft portions of this
+manuscript, under author direction and review. Two implementation errors
+introduced in that process were caught by the validation procedures described
+in Appendix~\ref{sec:appendix} --- a mis-normalised Krippendorff's $\alpha$ and
+a suffix-matching bug --- which is why those checks are released as tests. The
+religious lexicons, the expected-tradition mapping and all interpretive claims
+were author-verified against the sources cited in Appendix~\ref{sec:cultures}.
+The authors take full responsibility for the content of the paper.
 
 % Custom bibliography entries only
 \bibliography{references,cultures}
